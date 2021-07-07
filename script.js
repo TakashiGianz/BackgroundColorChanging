@@ -1,11 +1,14 @@
-function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
+const getRandomColor = () => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (const i = 0; i < 6; i++) {
         color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
 }
 
+const setColor = () => document.body.style.backgroundColor = getRandomColor()
+
 const button = document.querySelector("#color-changer");
-button.addEventListener('click', () => document.body.style.backgroundColor = getRandomColor());
+
+button.addEventListener('click', setColor);
