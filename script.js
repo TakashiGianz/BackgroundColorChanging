@@ -7,16 +7,33 @@ const getRandomColor = () => {
     return color;
 }
 
-const initialColor = () => {
-    document.body.style.backgroundColor = getRandomColor();
+const setBackgroundColor = color => {
+    document.body.style.backgroundColor = color
 }
-
-const setColor = () => document.body.style.backgroundColor = getRandomColor();
 
 const button = document.querySelector("#color-changer");
 
-initialColor();
-button.addEventListener('click', setColor);
-let initial = document.querySelector('.color').style.backgroundColor;
-const backInitial = () => setTimeout( () => document.body.style.backgroundColor = initial, 5000)
-button.addEventListener('click', backInitial);
+const originalColor = getRandomColor()
+const cornerBtmLeftColor = getRandomColor();
+const cornerBtmRghtColor = getRandomColor();
+const cornerTopLeftColor = getRandomColor();
+const cornerTopRghtColor = getRandomColor();
+
+
+setBackgroundColor(originalColor)
+
+const moveButtons = position => button.addEventListener('click', () => button.style.left = position);
+
+let count = 0
+button.onclick = () => {
+    count += 1;
+    console.log(count);
+}
+
+// SET A RANDOM BACKGROUND COLOR
+// button.addEventListener('click', () => setBackgroundColor(getRandomColor()))
+
+// BACK TO INITIAL COLOR 
+// const backInitial = () => setTimeout(() => setBackgroundColor(originalColor), 5000)
+
+// button.addEventListener('click', backInitial);
