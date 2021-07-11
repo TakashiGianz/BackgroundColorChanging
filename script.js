@@ -13,22 +13,51 @@ const setBackgroundColor = color => {
 
 const button = document.querySelector("#color-changer");
 
-const originalColor = getRandomColor()
-const cornerBtmLeftColor = getRandomColor();
-const cornerBtmRghtColor = getRandomColor();
-const cornerTopLeftColor = getRandomColor();
-const cornerTopRghtColor = getRandomColor();
+const originalColor = getRandomColor();
 
-
-setBackgroundColor(originalColor)
-
-const moveButtons = position => button.addEventListener('click', () => button.style.left = position);
-
-let count = 0
-button.onclick = () => {
-    count += 1;
-    console.log(count);
+const cornerTopLeft = {
+    left: '0%',
+    top: '0%',
+    color: getRandomColor()
 }
+
+const cornerBtmLeft = {
+    left: '0%',
+    top: '95%',
+    color: getRandomColor()
+}
+
+const cornerBtmRght = {
+    left: '80%',
+    top: '95%',
+    color: getRandomColor()
+}
+
+const cornerTopRght = {
+    left: '80%',
+    top: '0%',
+    color: getRandomColor()
+}
+
+const positions = [cornerTopLeft, cornerBtmLeft, cornerBtmRght, cornerTopRght];
+
+let actualPosition = 0;
+
+
+const moveButton = () => {
+    button.style.left = positions[actualPosition].left;
+    button.style.top = positions[actualPosition].top;
+    setBackgroundColor(positions[actualPosition].color);
+};
+
+button.addEventListener('click', () => {
+    actualPosition = (actualPosition + 1) % 4 ;
+    moveButton();
+})
+
+moveButton();
+
+// setBackgroundColor(originalColor)
 
 // SET A RANDOM BACKGROUND COLOR
 // button.addEventListener('click', () => setBackgroundColor(getRandomColor()))
