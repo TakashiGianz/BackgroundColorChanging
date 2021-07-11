@@ -56,13 +56,4 @@ button.addEventListener('click', () => {
 })
 
 moveButton();
-
-// setBackgroundColor(originalColor)
-
-// SET A RANDOM BACKGROUND COLOR
-// button.addEventListener('click', () => setBackgroundColor(getRandomColor()))
-
-// BACK TO INITIAL COLOR 
-// const backInitial = () => setTimeout(() => setBackgroundColor(originalColor), 5000)
-
-// button.addEventListener('click', backInitial);
+// Batata
