@@ -1,12 +1,3 @@
-// const getRandomColor = () => {
-//     const letters = '0123456789ABCDEF';
-//     let color = '#';
-//     for (let i = 0; i < 6; i++) {
-//         color += letters[Math.floor(Math.random() * 16)];
-//     }
-//     return color;
-// }
-
 const getRandomColor = () => {
     let rNumber = Math.round(Math.random() * 255);
     let gNumber = Math.round(Math.random() * 255);
@@ -29,6 +20,10 @@ const button = document.querySelector("#color-changer");
 
 const setButtonColor = array => {
     button.style.backgroundColor = 'rgb' + '(' + array[0] + ', ' + array[1] +  ', ' + array[2] + ')';
+}
+
+const setFontColor = color => {
+    button.style.color = color;
 }
 
 const cornerTopLeft = {
@@ -98,10 +93,12 @@ button.addEventListener('click', () => {
         const changeColorValueTo0 = () => activeRgb[indiceRgb] = 0;
         changeColorValueTo0();
         setButtonColor(activeRgb);
+        setFontColor('white');
     } else if(maxRgb < 128) {
         const changeColorValueTo255 = () => activeRgb[indiceRgb] = 255;
         changeColorValueTo255();
         setButtonColor(activeRgb);
+        setFontColor('black');
     }
 })
 
