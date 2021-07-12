@@ -13,13 +13,13 @@ const getRandomColor = () => {
 }
 
 const setBackgroundColor = (red,green,blue) => {
-    document.body.style.backgroundColor = 'rgb' + '(' + red + ', ' + green +  ', ' + blue + ')';
+    document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue}`;
 }
 
 const button = document.querySelector("#color-changer");
 
 const setButtonColor = array => {
-    button.style.backgroundColor = 'rgb' + '(' + array[0] + ', ' + array[1] +  ', ' + array[2] + ')';
+    button.style.backgroundColor =  `rgb(${array[0]}, ${array[1]}, ${array[2]}`;
 }
 
 const setFontColor = color => {
